@@ -28,6 +28,20 @@ This class requires the shared libraries Ogg, Opus, and Opusfile.
    :members:
    :undoc-members:
 
+OpusMemory
+--------
+                   
+To read an entire OggOpus-encoded bytearray into memory, use the
+``OpusMemory`` class.
+
+This class requires the shared libraries Ogg, Opus, and Opusfile.
+
+.. currentmodule:: pyogg.opus_memory
+.. autoclass:: OpusMemory
+   :members:
+   :undoc-members:
+
+
 OpusFileStream
 --------------
       

@@ -37,6 +37,7 @@ if (PYOGG_OGG_AVAIL and PYOGG_OPUS_AVAIL and PYOGG_OPUS_FILE_AVAIL):
     from .opus_file import OpusFile
     # OpusFileStream
     from .opus_file_stream import OpusFileStream
+    from .opus_memory import OpusMemeory
 
 else:
     class OpusFile: # type: ignore
@@ -48,6 +49,17 @@ else:
             if not PYOGG_OPUS_FILE_AVAIL:
                 raise PyOggError("The OpusFile library wasn't found or couldn't be loaded (maybe you're trying to use 64bit libraries with 32bit Python?)")
             raise PyOggError("Unknown initialisation error")
+
+    class OpusMemory: # type: ignore
+        def __init__(*args, **kw):
+            if not PYOGG_OGG_AVAIL:
+                raise PyOggError("The Ogg library wasn't found or couldn't be loaded (maybe you're trying to use 64bit libraries with 32bit Python?)")
+            if not PYOGG_OPUS_AVAIL:
+                raise PyOggError("The Opus library wasn't found or couldn't be loaded (maybe you're trying to use 64bit libraries with 32bit Python?)")
+            if not PYOGG_OPUS_FILE_AVAIL:
+                raise PyOggError("The OpusFile library wasn't found or couldn't be loaded (maybe you're trying to use 64bit libraries with 32bit Python?)")
+            raise PyOggError("Unknown initialisation error")
+
 
     class OpusFileStream: # type: ignore
         def __init__(*args, **kw):
